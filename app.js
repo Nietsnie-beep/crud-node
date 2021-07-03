@@ -1,12 +1,16 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
-// app.get('/',(req,res) => {
-//     res.send('hola')
-// })
+// routes
+// app.get("/",(req,res)=>{
+//     res.send("hello");
+// });
 
-app.set('view engine', 'ejs');
+app.use('/', require('./router'))
 
+// server started
 
-
-app.listen(5000, () => console.log('server corriendo en localhost:5000'));
+const port =process.env.PORT || 5000;
+app.listen(port,()=>{
+    console.log("server started at port 5000");
+});
